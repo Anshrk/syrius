@@ -1,9 +1,9 @@
 import { CommandNotFound, Discord, CommandMessage, On, ArgsOf, Client } from "@typeit/discord";
-import { Bye } from "../commands/Bye";
+import { OnMemberJoin } from "../commands/Bye";
 
 @Discord("!", {
   import: [
-    Bye
+    OnMemberJoin
   ]
 })
 export class DiscordApp {
