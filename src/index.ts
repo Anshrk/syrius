@@ -5,7 +5,6 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 const TOKEN: string = process.env.TOKEN!;
-console.log(`${TOKEN} = token`);
 
 
 export class Main {
@@ -21,8 +20,8 @@ export class Main {
         this._client = new Client();
         this._client.login(
             process.env.TOKEN!,
-            `${__dirname}/discord/*.ts`,
-            `${__dirname}/discord/*.js`
+            `${__dirname}/discords/*.ts`,
+            `${__dirname}/discords/*.js`
         );
 
         console.log(Client.getCommands());
