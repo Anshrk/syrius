@@ -1,0 +1,21 @@
+{
+  "name": "syrius",
+  "version": "1.0.0",
+  "description": "a discord bot for awesomeness",
+  "main": "index.ts",
+  "repository": "https://github.com/anshrk/syrius",
+  "author": "Ansh",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/index.js",
+    "watch": "tsc -p tsconfig.json -w",
+    "test": "mocha -r ts-node/register \"tests/**/*.spec.ts\""
+  },
+  "devDependencies": {
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "dotenv": "^9.0.2"
+  }
+}
