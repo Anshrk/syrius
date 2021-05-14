@@ -1,9 +1,9 @@
 
-import { Command, CommandMessage, Description} from "@typeit/discord";
+import { On, ArgsOf } from "@typeit/discord";
 
-export abstract class Bye {
-  @Command("bye")
-  async bye(command: CommandMessage) {
-    command.reply("Bye!");
-  }
+export abstract class OnMemberJoin {
+    @On('guildMemberAdd')
+    async AddRole([person]: ArgsOf<"guildMemberAdd">) {
+        
+    }
 }
