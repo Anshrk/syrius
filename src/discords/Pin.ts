@@ -1,22 +1,19 @@
-import { CommandNotFound, Discord, CommandMessage, On, ArgsOf, Client } from "@typeit/discord";
-import { OnMemberJoin } from "../commands/Bye";
+import {
+  CommandNotFound,
+  Discord,
+  CommandMessage,
+  Client,
+  Command,
+  Description,
+  Infos,
+} from "@typeit/discord";
+import { Admin } from "../commands/Admin";
 
-@Discord("!", {
-  import: [
-    OnMemberJoin
-  ]
-})
+@Discord("sy ", { import: [Admin] })
+@Description("Admin Commands")
 export class DiscordApp {
-  @On("message")
-  onMessage(
-    [message]: ArgsOf<"message">,
-    client: Client
-  ) {
-
-  }
-
   @CommandNotFound()
   notFoundA(command: CommandMessage) {
-    command.reply("Command not found");
+    command.reply("Might wanna learn english, thats not how i work!");
   }
 }
