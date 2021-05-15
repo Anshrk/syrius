@@ -10,11 +10,38 @@ interface KickArgs {
 export abstract class Admin {
   @Command("kick :user :reason")
   @Description("Kick a user")
-  async hello(command: CommandMessage<KickArgs>, client: Client) {
+  private async kick(command: CommandMessage<KickArgs>, client: Client) {
     const id = GetIDByMention(command);
 
     const Myembed = new MessageEmbed()
-      .setColor("#000")
+      .setColor("#511281")
+      .setTitle(`${command.args.reason} Was Kicked`)
+      .addFields(
+        { name: "By", value: command.author },
+        { name: "Kicked", value: command.args.user },
+        {
+          name: "Reason",
+          value: command.args.reason ? command.args.reason : "Not specified",
+        }
+      );
+
+    console.log(command.guild?.member(id)?.nickname)
+    command.guild
+      ?.member(command.guild.member(id)!)
+      ?.kick(command.args.reason)
+      .then(() => command.channel.send(Myembed))
+      .catch((err) => {
+        command.reply(`couldn't kick the dude because \`\`\`${err}\`\`\``);
+        console.log(err);
+      });
+  }
+  @Command("kick :user :reason")
+  @Description("Kick a user")
+  private async ban(command: CommandMessage<KickArgs>, client: Client) {
+    const id = GetIDByMention(command);
+
+    const Myembed = new MessageEmbed()
+      .setColor("#511281")
       .setTitle(`${command.args.reason} Was Kicked`)
       .addFields(
         { name: "By", value: command.author },

@@ -11,7 +11,7 @@ import { Admin } from "../commands/Admin";
 
 @Discord("sy ", { import: [Admin] })
 @Description("Admin Commands")
-export class DiscordApp {
+export class AdminDiscord {
   @CommandNotFound()
   notFoundA(command: CommandMessage) {
     command.reply("Might wanna learn english, thats not how i work!");
